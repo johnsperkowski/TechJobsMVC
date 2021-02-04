@@ -26,6 +26,7 @@ namespace TechJobsMVC.Controllers
         public IActionResult Results(string searchType, string searchTerm)
         {
             List<Job> jobs;
+            ViewBag.searchString = searchTerm;
             if(searchTerm == null)
             {
                 jobs = JobData.FindAll();
@@ -34,7 +35,7 @@ namespace TechJobsMVC.Controllers
             else
             {
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
-                ViewBag.title = "Jobs with " + searchType + ": " + searchTerm;
+                ViewBag.title = "Jobs with " + ListController.ColumnChoices[searchType] + ": " + searchTerm;
             }
             ViewBag.jobs = jobs;
             ViewBag.columns = ListController.ColumnChoices;

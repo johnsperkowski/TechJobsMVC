@@ -18,7 +18,7 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <input type="text" name="searchTerm" id="searchTerm" value="@ViewBag.searchString" />
         </p>
 
         <input type="submit" value="Search" />
@@ -53,16 +53,16 @@
                         @job.Name
                     </th>
                     <th>
-                        @job.Employer
+                        <a asp-controller="List" asp-action="Jobs" asp-route-column="employer" asp-route-value="@job.Employer">@job.Employer</a>
                     </th>
                     <th>
-                        @job.Location
+                        <a asp-controller="List" asp-action="Jobs" asp-route-column="location" asp-route-value="@job.Location">@job.Location</a>
                     </th>
                     <th>
-                        @job.PositionType
+                        <a asp-controller="List" asp-action="Jobs" asp-route-column="positionType" asp-route-value="@job.PositionType">@job.PositionType</a>
                     </th>
                     <th>
-                        @job.CoreCompetency
+                        <a asp-controller="List" asp-action="Jobs" asp-route-column="coreCompetency" asp-route-value="@job.CoreCompetency">@job.PositionType</a>
                     </th>
                 </tr>
             }
